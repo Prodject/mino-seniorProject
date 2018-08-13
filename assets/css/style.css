@@ -1,0 +1,781 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+* {
+	font-family: spotify-circular,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
+	color: #fff;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+body {
+	background-color: #181818;
+    font-size: 14px;
+    min-width: 720px;
+}
+
+header.artistHeader{
+	position: relative;
+	-ms-flex-align: center;
+	-ms-grid-row-align: center;
+	align-items: center;
+	background-size: cover;
+	background-position: 50%;
+	padding-left: 240px;
+	margin-left: -240px;
+	margin-right: -240px;
+	padding-right: 240px;
+
+}
+
+header.artistHeader::before {
+	background-image: url(naza.png);
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background: linear-gradient(transparent -30%, #181818);
+}
+
+header.artistHeader>* {
+	position: relative;
+}
+
+#nowPlayingContainer {
+ width: 100%;
+ background-color: #282828;
+ bottom: 0;
+ position: fixed;
+ min-width: 620px;
+ z-index: 101;
+
+}
+
+#nowPlayingBar {
+    display: flex;
+    height: 90px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+#nowPlayingLeft,
+#nowPlayingRight {
+	  width: 30%;
+    min-width: 180px;
+}
+
+#nowPlayingRight {
+	position: relative;
+	margin-top: 16px;
+}
+
+#nowPlayingCenter {
+	width: 40%;
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#nowPlayingBar .content {
+	width: 100%;
+	height: 57px;
+}
+
+.playerControls .buttons {
+	margin: 0 auto;
+	display: table;
+}
+
+.controlButton {
+	background-color: transparent;
+  border: none;
+  vertical-align: middle;
+}
+
+.controlButton img {
+	width: 20px;
+  height: 20px;
+}
+
+.controlButton.play img,
+.controlButton.pause img {
+	width: 32px;
+    height: 32px;
+}
+
+.controlButton:hover {
+	cursor: pointer;
+}
+
+.progressTime {
+	color: #a0a0a0;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+}
+.playbackBar {
+	display: flex;
+}
+.progressBar {
+	width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.progressBarBG {
+	background-color: #404040;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+
+.progress {
+	background-color: #a0a0a0;
+    height: 4px;
+    width: 0;
+    border-radius: 2px;
+}
+
+.playbackBar .progressBar {
+	    margin-top: 3px;
+}
+
+#nowPlayingLeft .albumArtwork {
+	height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+#nowPlayingLeft .trackInfo {
+	display: table;
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+	margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+	font-size: 12px;
+    color: #a0a0a0;
+}
+
+.volumeBar {
+	width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+.volumeBar .progressBar {
+	width: 125px;
+}
+
+#topContainer {
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+
+}
+
+.browse {
+	background-size: cover;
+	padding: -220px -123px;
+	background-position: 50%;
+	padding-left: 240px;
+	margin-left: -240px;
+	margin-right: -20px;
+	padding-right: 20px;
+	background-image: linear-gradient(rgb(58, 91, 95), rgb(6, 9, 10) 85%);
+}
+
+.your-music {
+	background-size: cover;
+	padding: -220px -123px;
+	background-position: 50%;
+	padding-left: 240px;
+	margin-left: -240px;
+	margin-right: -20px;
+	padding-right: 20px;
+	height: 100vh;
+	background-image: linear-gradient(rgb(82, 83, 70), rgb(8, 8, 7) 85%);
+}
+
+#navBarContainer {
+	background-color: rgba(0,0,0,.5);
+    width: 220px;
+    height: 200vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+		overflow: auto;
+		z-index: 100;
+		min-height: 0!important;
+		will-change: transform;
+
+}
+
+.navBar {
+	padding: 25px;
+	padding-bottom: 95px;
+  display: flex;
+  flex-direction: column;
+  -ms-flex-direction: column;
+
+}
+
+.navBar-expand {
+	flex: 1;
+}
+
+.logo {
+	margin-bottom: 15px;
+
+}
+
+.logo img {
+	height: 32px;
+	width: 32px;
+	padding-bottom: 20px
+
+}
+
+.navItem.standalone {
+	padding-top: 9px;
+	padding-left: 4px;
+	border-top: 1px solid #404040;
+	margin-top: 10px;
+}
+
+.navItems {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.navItem {
+		padding: 10px 0 10px 36px;
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.navItemLink {
+    color: #a0a0a0;
+    text-decoration: none;
+		cursor: pointer;
+}
+
+.navItemLink:hover {
+    color: #fff;
+}
+
+.active {
+	color: #1ed760;
+	text-decoration: none;
+}
+
+.navItemLink .icon {
+		position: absolute;
+    left: 0;
+    top: 6px;
+    width: 25px;
+		border-radius: 50%;
+		cursor: pointer;
+}
+.sessionInfo {
+    padding-top: 8px;
+    padding-left: 4px;
+    margin: 0;
+    border-top: 1px solid #404040;
+}
+
+.navItemLink .session-img {
+		position: absolute;
+    left: 0;
+    top: 6px;
+    width: 25px;
+}
+
+#mainViewContainer {
+		padding-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+		min-height: 0!important;
+}
+
+#mainContent {
+	padding: 0 20px;
+
+}
+
+.pageHeadingBig {
+	padding: 20px;
+    text-align: center;
+}
+
+.gridViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem2 {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem img {
+	width: 100%;
+}
+
+
+.gridViewItem2 img {
+	object-fit: cover;
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+}
+
+.gridViewItem.link {
+	cursor: pointer;
+}
+
+.gridViewInfo {
+	font-weight: 300;
+    text-align: center;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gridViewItem a {
+	text-decoration: none;
+}
+
+.entityInfo {
+	padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.entityInfo .leftSection {
+	width: 30%;
+    float: left;
+    max-width: 250px;
+}
+
+.entityInfo .leftSection img {
+	width: 100%;
+}
+
+.entityInfo .rightSection {
+	width: 70%;
+    float: left;
+    padding: 5px 10px 5px 40px;
+    box-sizing: border-box;
+}
+
+.entityInfo .rightSection h2 {
+	margin-top: 0px;
+}
+
+.entityInfo .rightSection p {
+	color: #939393;
+	font-weight: 200;
+}
+
+.trackList {
+    padding: 0;
+}
+
+.tracklistRow {
+	height: 40px;
+    padding: 15px 10px;
+    list-style: none;
+}
+
+.tracklistRow span {
+	color: #939393;
+    font-weight: 200
+}
+
+.tracklistRow:hover {
+	background-color: #282828;
+}
+
+.tracklistRow .trackCount {
+	width: 8%;
+    float: left;
+ }
+
+.tracklistRow .trackCount img {
+ 	width: 20px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+ }
+
+.tracklistRow:hover .trackCount img {
+ 	visibility: visible;
+ }
+
+.tracklistRow .trackCount span {
+ 	visibility: visible;
+ }
+
+.tracklistRow:hover .trackCount span {
+ 	visibility: hidden;
+ }
+
+ .tracklistRow .trackInfo {
+ 	width: 75%;
+    float: left;
+ }
+
+ .tracklistRow .trackInfo span {
+ 	display: block;
+ }
+
+ .tracklistRow .trackOptions {
+ 	width: 5%;
+    float: left;
+    text-align: right;
+ }
+
+ .tracklistRow .trackOptions img {
+ 	width: 15px;
+    visibility: hidden;
+ }
+
+ .tracklistRow:hover .trackOptions img {
+    visibility: visible;
+ }
+
+ .tracklistRow .trackDuration {
+ 		width: 12%;
+    float: left;
+    text-align: right;
+ }
+
+ .tracklistRow .trackInfo .trackName {
+ 		color: #fff;
+ 		margin-bottom: 7px;
+ }
+
+ .artistInfo {
+    text-align: center;
+		margin: 0 auto;
+		max-width: 70%;
+		display: block;
+ }
+
+ h1.artistName {
+	 	font-size: 72px;
+    line-height: 82px;
+    letter-spacing: -.005em;
+    font-weight: 600;
+    color: #fff;
+    text-transform: none;
+ }
+
+ .button {
+	 font-size: 11px;
+	 line-height: 16px;
+	 letter-spacing: .015em;
+	 font-weight: 200;
+	 color: hsla(0, 0%, 100%, .6);
+	 text-transform: uppercase;
+	 letter-spacing: .16em;
+	 transition: none 33ms cubic-bezier(.3, 0, .7, 1);
+	 transition-property: all;
+	 color: #fff;
+	 margin-top: 16px;
+	 display: inline-block;
+	 margin-bottom: 0;
+	 text-align: center;
+	 -ms-touch-action: manipulation;
+	 touch-action: manipulation;
+	 background-image: none;
+	 border: 0;
+	 border-radius: 500px;
+	 padding: 13px;
+	 min-width: 130px;
+	 white-space: normal;
+	 will-change: transform;
+	 line-height: 1.6;
+	 vertical-align: middle;
+	 -webkit-user-select: none;
+	 -moz-user-select: none;
+	 -ms-user-select: none;
+	 user-select: none;
+ }
+
+ @media (-webkit-min-device-pixel-ratio:2) {
+    .button {
+        transition-duration: 50ms
+    }
+}
+
+.button:not(.disabled):focus,
+.button:not(.disabled):hover {
+    transition: none 33ms cubic-bezier(.3, 0, 0, 1);
+    transition-property: all;
+    transform: scale(1.06)
+}
+
+@media (-webkit-min-device-pixel-ratio:2) {
+    .button:not(.disabled):focus,
+    .button:not(.disabled):hover {
+        transition-duration: 66ms
+    }
+}
+
+.button:not(.disabled):active {
+    transition: none;
+    transform: scale(.99)
+}
+
+.button.disabled {
+    pointer-events: none;
+    opacity: .35
+}
+
+ .button.green {
+    background-color: #1db954;
+    padding: 11px 44px
+}
+
+.button.green:focus,
+.button.green:hover {
+    background-color: #1ed760;
+}
+
+.button.black {
+    padding: 11px 44px;
+    background: hsla(0, 0%, 9%, .7);
+    color: #fff;
+    box-shadow: inset 0 0 0 2px #b3b3b3;
+		min-width: 240px;
+}
+
+.button.black:hover {
+    box-shadow: inset 0 0 0 2px #fff, 0 0 0 1px transparent
+}
+
+ .borderBottom {
+    border-bottom: 1px solid #939393;
+    margin-bottom: 20px;
+ }
+
+ .trackListContainer h2,
+ .gridViewContainer h2,
+ .artistContainer h2 {
+	 	text-align: center;
+		font-size: 36px;
+		line-height: 44px;
+		letter-spacing: -.005em;
+		font-weight: 600;
+		color: #fff;
+		text-transform: capitalize;
+		margin: 24px 0;
+ }
+
+ [role="link"] {
+    cursor: pointer;
+		outline: 0;
+ }
+
+ .searchContainer {
+	 	position: relative;
+    background-color: #242424;
+    padding: 32px 0;
+		margin: 0 -20px;
+ }
+
+ .searchContainer h4 {
+    margin: 0;
+    font-weight: 300;
+		font-size: 14px;
+		letter-spacing: .015em;
+		line-height: 20px;
+		text-transform: none;
+ }
+
+ .searchInput {
+	 	font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -.005em;
+    font-weight: 600;
+    color: #fff;
+    text-transform: none;
+    caret-color: #1db954;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+ }
+
+.searchInput:-ms-input-placeholder {
+    color: #535353
+}
+
+.searchInput::placeholder {
+    color: #535353
+}
+
+ .contentSpacing {
+	 	padding: 0 2em;
+    margin: 0 auto;
+    max-width: 14280;
+ }
+
+ input:focus {
+    outline: none;
+ }
+
+ .searchResultRow {
+    padding: 15px 10px;
+ }
+
+ .searchResultRow:hover {
+    background-color: #282828;
+ }
+
+ .searchResult .artistName span {
+    color: #fff;
+ }
+
+ .noResults {
+    margin: 15px;
+    display: block;
+ }
+
+ .buttonItems .button {
+	 display: block;
+	 margin: 0 auto 20px auto;
+ }
+
+ .playlistContainer {
+	 padding: 10px 0;
+ }
+
+.playlistImage {
+	border: 3px solid #181818;
+	padding: 10px;
+}
+
+.optionsMenu {
+		position: fixed;
+		background-color: #282828;
+		width: 200px;
+		border: 1px solid rgba(0, 0, 0, 0.15);
+		border-radius: 3px;
+		z-index: 1000;
+		display: none;
+}
+
+.optionsMenu .item {
+	width: 100%;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	font-weight: 400;
+	color: rgba(147, 147, 147, 0.8);
+	background-color: #282828;
+	font-size: 14px;
+	cursor: pointer;
+	height: 40px;
+}
+
+.optionsMenu .item:hover {
+	color: #fff;
+	background-color: #333;
+	border-color: #333;
+}
+
+.optionsMenu select {
+	border: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.userInfo h1 {
+	text-align: center;
+	font-size: 36px;
+	line-height: 44px;
+	letter-spacing: -.005em;
+	font-weight: 600;
+	color: #fff;
+	text-transform: none;
+	margin: 24px 0;
+}
+
+.userDetails {
+	padding: 20px;
+}
+
+.userDetails .container h2 {
+	text-align: center;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"],
+.userDetails .container .button {
+	display: block;
+	margin: 16px auto;
+}
+
+.userDetails .container input[type="text"],
+.userDetails .container input[type="password"] {
+	height: 50px;
+	width: 100%;
+	background: #1f1f1f;
+	border: none;
+	font-size: 18px;
+	font-weight: 300;
+	padding: 0 20px;
+}
+
+.userDetails .container .message {
+	color: #2ebd59;
+	font-weight: 300;
+}
+
+.navItem .active {
+    color: #2ebd59;
+}
+
+	.profilePic {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
